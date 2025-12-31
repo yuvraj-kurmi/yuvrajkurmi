@@ -211,6 +211,52 @@ ul {
   box-shadow: 0 22px 55px rgba(0, 0, 0, 0.2);
 }
 
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+    transition: right 0.4s ease;
+    z-index: 999;
+  }
+
+  .menu.active {
+    right: 0;
+  }
+
+  .menu a {
+    font-size: 1.2rem;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .menu a:hover {
+    background: #007bff10;
+    transform: translateX(5px);
+  }
+
+  .menu-close {
+    margin-top: auto;
+    align-self: flex-end;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+ 
+
 /* 
    ABOUT SECTION
  */
@@ -720,3 +766,4 @@ ul {
     max-width: 100%;
   }
 }
+

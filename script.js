@@ -158,3 +158,32 @@ window.addEventListener("mouseout", () => {
   if (!heroImage) return;
   heroImage.style.transform = "translate(0, 0) scale(1)";
 });
+
+const hamburger = document.querySelector(".hamburger");
+const menu = document.querySelector(".menu");
+const menuClose = document.querySelector(".menu-close");
+
+// Open/close menu with hamburger
+hamburger.addEventListener("click", () => {
+  menu.classList.toggle("active");
+  hamburger.classList.toggle("active");
+  const expanded = hamburger.getAttribute("aria-expanded") === "true" || false;
+  hamburger.setAttribute("aria-expanded", !expanded);
+});
+
+// Close menu on link click
+document.querySelectorAll(".menu a:not(.menu-close)").forEach(link => {
+  link.addEventListener("click", () => {
+    menu.classList.remove("active");
+    hamburger.classList.remove("active");
+    hamburger.setAttribute("aria-expanded", "false");
+  });
+});
+
+// Close menu using close icon
+menuClose.addEventListener("click", () => {
+  menu.classList.remove("active");
+  hamburger.classList.remove("active");
+  hamburger.setAttribute("aria-expanded", "false");
+});
+
